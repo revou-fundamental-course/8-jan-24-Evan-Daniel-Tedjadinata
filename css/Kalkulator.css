@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    color: blue;
+}
+
+header p {
+    font-size: x-small;
+}
+
+.InputSection {
+    display: flex;
+    flex-direction: column;
+}
+
+#SquareSide {
+    margin-top: 10px;
+    outline: none;
+    border-radius: 8px;
+    border: solid #739072;
+    padding: 10px;
+}
+
+#SquareSide:focus {
+    border: solid #3a4d39;
+}
+
+button {
+    background-color: #739072;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4f6f52;
+}
+
+button:active {
+    background-color: #3a4d39;
+    transform: translateY(1px);
+}
