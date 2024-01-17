@@ -1,27 +1,33 @@
-var calcDisplay = ""
-function btnClick(e){
-    if (e == "1" || e == "2" || e == "3" || e == "4" || e == "/" || e == "*")
-        if (e == "AC"){
-            calcDisplay = ""
-        } else {
-            calcDisplay = calcDisplay + e
-            console.log(calcDisplay)
-        }
-        document.getElementById("display").value = calcDisplay
-    } else {
-        console.log("input harus berupa angka dan simbol")
-    }
+function hitungLuasKeliling() {
+  const sideLength = parseFloat(document.getElementById("sideLength").value);
 
-document.getElementById("display").addEventListener('input', function displayChange() {
-    console.log(this.value)
-    let e = this.value
-    
-let chars = /^\d[0-9+-*/.]+$/
+  if (isNaN(sideLength) || sideLength <= 0) {
+      alert("Masukkan panjang sisi yang valid.");
+      return;
+  }
 
-    if (chars.test(e)) {
-        console.log("digits")
-    } else {
-        console.log("not digits")
-    }
-})
+  const luas = sideLength * sideLength;
+  const keliling = 4 * sideLength;
 
+  document.getElementById("luasResult").innerText = luas.toFixed(2);
+  document.getElementById("kelilingResult").innerText = keliling.toFixed(2);
+
+  const luasCalculation = `Luas = S x S\nLuas = (${sideLength}) x (${sideLength})\nLuas = ${luas.toFixed(2)}`;
+  document.getElementById("luasCalculation").innerText = luasCalculation;
+
+  const kelilingCalculation = `Keliling = 4 x S\nKeliling = 4 x (${sideLength})\nKeliling = ${keliling.toFixed(2)}`;
+  document.getElementById("kelilingCalculation").innerText = kelilingCalculation;
+
+  document.getElementById("resultContainer").style.display = "block";
+}
+
+function resetForm() {
+  document.getElementById("sideLength").value = "";
+
+  document.getElementById("resultContainer").style.display = "none";
+
+  document.getElementById("luasResult").innerText = "";
+  document.getElementById("kelilingResult").innerText = "";
+  document.getElementById("luasCalculation").innerText = "";
+  document.getElementById("kelilingCalculation").innerText = "";
+}
